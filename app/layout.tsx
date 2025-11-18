@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AgentProvider } from "@/lib/agent-context";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Agent IT - Recommandations d'équipements intelligentes",
-  description: "Agent intelligent pour recommander des équipements IT adaptés à vos besoins",
+  title: "Opti'Match - Recommandations d'équipements IT intelligentes",
+  description: "Votre assistant IA pour trouver les équipements IT parfaitement adaptés à vos besoins professionnels",
 };
 
 export default function RootLayout({
@@ -24,14 +25,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <script src="https://js.puter.com/v2/" async defer></script>
-        <AgentProvider>
-          {children}
-        </AgentProvider>
+        <ThemeProvider>
+          <AgentProvider>
+            {children}
+          </AgentProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

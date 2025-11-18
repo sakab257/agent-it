@@ -11,6 +11,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Header } from '@/components/header';
 import { useAgent } from '@/lib/agent-context';
+import { User, Building2, DollarSign, Target, Laptop, Gamepad, Palette, Code, Music, Briefcase, FileText, ArrowLeft, Sparkles } from 'lucide-react';
 
 const BRANDS = ['Apple', 'Samsung', 'Dell', 'HP', 'Lenovo', 'Asus', 'MSI', 'Acer', 'Peu importe'];
 const OS = ['macOS', 'Windows', 'Linux', 'Android', 'iOS', 'Peu importe'];
@@ -23,12 +24,12 @@ const BUDGET_RANGES = [
   { value: '3000+', label: 'Plus de 3000€' },
 ];
 const USAGE_TYPES = [
-  { value: 'bureautique', label: 'Bureautique (Office, navigation web, emails)' },
-  { value: 'gaming', label: 'Gaming' },
-  { value: 'creation', label: 'Création de contenu (photo, vidéo, design)' },
-  { value: 'developpement', label: 'Développement logiciel' },
-  { value: 'multimedia', label: 'Multimédia (streaming, musique)' },
-  { value: 'entreprise', label: 'Usage professionnel en entreprise' },
+  { value: 'bureautique', label: 'Bureautique (Office, navigation web, emails)', icon: Laptop },
+  { value: 'gaming', label: 'Gaming', icon: Gamepad },
+  { value: 'creation', label: 'Création de contenu (photo, vidéo, design)', icon: Palette },
+  { value: 'developpement', label: 'Développement logiciel', icon: Code },
+  { value: 'multimedia', label: 'Multimédia (streaming, musique)', icon: Music },
+  { value: 'entreprise', label: 'Usage professionnel en entreprise', icon: Briefcase },
 ];
 
 export default function ConfigurePage() {
@@ -66,15 +67,22 @@ export default function ConfigurePage() {
       <main className="container mx-auto px-4 py-12">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+              <Target className="h-4 w-4" />
+              Configurez vos besoins
+            </div>
             <h1 className="text-4xl font-bold mb-2">Configuration</h1>
             <p className="text-muted-foreground">
               Remplissez le formulaire pour obtenir des recommandations personnalisées
             </p>
           </div>
 
-          <Card>
+          <Card className="border-2">
             <CardHeader>
-              <CardTitle>Vos critères de recherche</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <Sparkles className="h-5 w-5 text-primary" />
+                Vos critères de recherche
+              </CardTitle>
               <CardDescription>
                 Plus vous serez précis, plus nos recommandations seront adaptées
               </CardDescription>
@@ -83,7 +91,10 @@ export default function ConfigurePage() {
               <form onSubmit={handleSubmit} className="space-y-8">
                 {/* Type d'utilisateur */}
                 <div className="space-y-3">
-                  <Label htmlFor="userType">Type d'utilisateur</Label>
+                  <Label htmlFor="userType" className="flex items-center gap-2">
+                    <User className="h-4 w-4 text-primary" />
+                    Type d'utilisateur
+                  </Label>
                   <Select
                     value={formData.userType}
                     onValueChange={(value: 'individual' | 'enterprise') =>
@@ -94,15 +105,28 @@ export default function ConfigurePage() {
                       <SelectValue placeholder="Sélectionnez votre profil" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="individual">Particulier</SelectItem>
-                      <SelectItem value="enterprise">Entreprise</SelectItem>
+                      <SelectItem value="individual">
+                        <div className="flex items-center gap-2">
+                          <User className="h-4 w-4" />
+                          Particulier
+                        </div>
+                      </SelectItem>
+                      <SelectItem value="enterprise">
+                        <div className="flex items-center gap-2">
+                          <Building2 className="h-4 w-4" />
+                          Entreprise
+                        </div>
+                      </SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 {/* Budget */}
                 <div className="space-y-3">
-                  <Label htmlFor="budgetRange">Budget</Label>
+                  <Label htmlFor="budgetRange" className="flex items-center gap-2">
+                    <DollarSign className="h-4 w-4 text-primary" />
+                    Budget
+                  </Label>
                   <Select
                     value={formData.budgetRange}
                     onValueChange={(value) =>
@@ -129,21 +153,28 @@ export default function ConfigurePage() {
 
                 {/* Usage */}
                 <div className="space-y-3">
-                  <Label>Usage principal</Label>
+                  <Label className="flex items-center gap-2">
+                    <Target className="h-4 w-4 text-primary" />
+                    Usage principal
+                  </Label>
                   <RadioGroup
                     value={formData.usageType}
                     onValueChange={(value) =>
                       setFormData({ ...formData, usageType: value })
                     }
                   >
-                    {USAGE_TYPES.map((usage) => (
-                      <div key={usage.value} className="flex items-center space-x-2">
-                        <RadioGroupItem value={usage.value} id={usage.value} />
-                        <Label htmlFor={usage.value} className="font-normal cursor-pointer">
-                          {usage.label}
-                        </Label>
-                      </div>
-                    ))}
+                    {USAGE_TYPES.map((usage) => {
+                      const Icon = usage.icon;
+                      return (
+                        <div key={usage.value} className="flex items-center space-x-2 p-3 rounded-lg border hover:bg-accent/50">
+                          <RadioGroupItem value={usage.value} id={usage.value} />
+                          <Label htmlFor={usage.value} className="font-normal cursor-pointer flex items-center gap-2 flex-1">
+                            <Icon className="h-4 w-4 text-muted-foreground" />
+                            {usage.label}
+                          </Label>
+                        </div>
+                      );
+                    })}
                   </RadioGroup>
                 </div>
 
@@ -193,7 +224,10 @@ export default function ConfigurePage() {
 
                 {/* Besoins spécifiques (optionnel) */}
                 <div className="space-y-2">
-                  <Label htmlFor="specificNeeds">Besoins spécifiques (optionnel)</Label>
+                  <Label htmlFor="specificNeeds" className="flex items-center gap-2">
+                    <FileText className="h-4 w-4 text-primary" />
+                    Besoins spécifiques (optionnel)
+                  </Label>
                   <Textarea
                     id="specificNeeds"
                     placeholder={
@@ -214,20 +248,26 @@ export default function ConfigurePage() {
 
                 {/* Récapitulatif */}
                 {formData.budgetRange && formData.usageType && (
-                  <Card className="bg-muted/50">
+                  <Card className="bg-linear-to-br from-primary/5 to-accent/5 border-2">
                     <CardHeader>
-                      <CardTitle className="text-lg">Récapitulatif</CardTitle>
+                      <CardTitle className="text-lg flex items-center gap-2">
+                        <Sparkles className="h-5 w-5 text-primary" />
+                        Récapitulatif
+                      </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-2 text-sm">
-                      <div>
+                      <div className="flex items-center gap-2">
+                        {formData.userType === 'individual' ? <User className="h-4 w-4 text-muted-foreground" /> : <Building2 className="h-4 w-4 text-muted-foreground" />}
                         <span className="font-semibold">Type: </span>
                         {formData.userType === 'individual' ? 'Particulier' : 'Entreprise'}
                       </div>
-                      <div>
+                      <div className="flex items-center gap-2">
+                        <DollarSign className="h-4 w-4 text-muted-foreground" />
                         <span className="font-semibold">Budget: </span>
                         {BUDGET_RANGES.find((r) => r.value === formData.budgetRange)?.label}
                       </div>
-                      <div>
+                      <div className="flex items-center gap-2">
+                        <Target className="h-4 w-4 text-muted-foreground" />
                         <span className="font-semibold">Usage: </span>
                         {USAGE_TYPES.find((u) => u.value === formData.usageType)?.label}
                       </div>
@@ -248,11 +288,13 @@ export default function ConfigurePage() {
                 )}
 
                 <div className="flex gap-4">
-                  <Button type="button" variant="outline" onClick={() => router.push('/')}>
+                  <Button type="button" variant="outline" onClick={() => router.push('/')} className="flex items-center gap-2">
+                    <ArrowLeft className="h-4 w-4" />
                     Retour
                   </Button>
-                  <Button type="submit" className="flex-1">
+                  <Button type="submit" className="flex-1 flex items-center gap-2 justify-center">
                     Obtenir mes recommandations
+                    <Sparkles className="h-4 w-4" />
                   </Button>
                 </div>
               </form>

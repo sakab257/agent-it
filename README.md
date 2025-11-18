@@ -1,6 +1,6 @@
-# Agent IT - Recommandations d'équipements intelligentes
+# Opti'Match - Recommandations d'équipements IT intelligentes
 
-Agent intelligent pour recommander des équipements IT adaptés à vos besoins, utilisant l'IA via Puter.js.
+Assistant IA pour recommander les équipements IT parfaitement adaptés à vos besoins professionnels, propulsé par Puter.js et Claude 3.5 Sonnet.
 
 ## Fonctionnalités
 
