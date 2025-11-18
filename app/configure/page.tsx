@@ -19,9 +19,9 @@ const BUDGET_RANGES = [
   { value: '0-500', label: 'Moins de 500€' },
   { value: '500-1000', label: '500€ - 1000€' },
   { value: '1000-1500', label: '1000€ - 1500€' },
-  { value: '1500-2000', label: '1500€ - 2000€' },
-  { value: '2000-3000', label: '2000€ - 3000€' },
-  { value: '3000+', label: 'Plus de 3000€' },
+  { value: '1500-3000', label: '1500€ - 3000€' },
+  { value: '3000-6000', label: '3000€ - 6000€' },
+  { value: '6000+', label: 'Plus de 6000€' },
 ];
 const USAGE_TYPES = [
   { value: 'bureautique', label: 'Bureautique (Office, navigation web, emails)', icon: Laptop },

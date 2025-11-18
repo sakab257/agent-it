@@ -27,7 +27,7 @@ Preferred operating systems: ${os.length > 0 ? os.join(', ') : 'No preference'}
 ${specificNeeds ? `Specific needs: ${specificNeeds}` : ''}
 
 ${userType === 'enterprise'
-  ? 'Provide a detailed list of IT equipment for an enterprise, including phones, laptops, desktops, accessories, and network infrastructure if needed.'
+  ? 'Provide a detailed list of IT equipment for an enterprise, including phones, laptops, desktops, accessories if needed.'
   : 'Recommend the best IT equipment (phone, computer, accessories) suitable for these needs.'}
 
 For each recommendation, include:
