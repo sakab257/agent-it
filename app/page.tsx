@@ -14,7 +14,7 @@ export default function Home() {
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
               <Sparkles className="h-4 w-4" />
-              Propulsé par l'IA
+              Projet fait par Yacine-Samy & Salim
             </div>
             <h1 className="text-5xl font-bold tracking-tight bg-linear-to-r from-foreground to-foreground/70 bg-clip-text">
               Bienvenue sur Opti'Match

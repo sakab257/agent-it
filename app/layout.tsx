@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
 import { AgentProvider } from "@/lib/agent-context";
 import { ThemeProvider } from "@/components/theme-provider";
+
+const montserrat = Montserrat({
+  weight: ["100","400","700"],
+  subsets: ["latin"],
+})
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${montserrat.className} antialiased`}
       >
         <script src="https://js.puter.com/v2/" async defer></script>
         <ThemeProvider>
