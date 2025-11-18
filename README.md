@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Agent IT - Recommandations d'équipements intelligentes
 
-## Getting Started
+Agent intelligent pour recommander des équipements IT adaptés à vos besoins, utilisant l'IA via Puter.js.
 
-First, run the development server:
+## Fonctionnalités
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- 🎯 **Recommandations personnalisées** pour particuliers et entreprises
+- 💰 **Adaptation au budget** pour maximiser le rapport qualité-prix
+- 🎨 **Interface moderne** avec shadcn/ui et Tailwind CSS
+- 🤖 **IA avancée** via Puter.js (Claude 3.5 Sonnet)
+- 📱 **Design responsive** pour tous les appareils
+
+## Technologies utilisées
+
+- **Next.js 16** - Framework React
+- **TypeScript** - Typage statique
+- **Tailwind CSS** - Styles utilitaires
+- **shadcn/ui** - Composants UI modernes
+- **Puter.js** - SDK pour l'IA
+
+## Structure du projet
+
+```
+agent/
+├── app/
+│   ├── page.tsx              # Page d'accueil
+│   ├── configure/
+│   │   └── page.tsx          # Page de configuration
+│   ├── recommendations/
+│   │   └── page.tsx          # Page de recommandations
+│   ├── layout.tsx            # Layout global
+│   └── globals.css           # Styles globaux
+├── components/
+│   ├── header.tsx            # Composant de navigation
+│   └── ui/                   # Composants shadcn
+├── lib/
+│   ├── agent-context.tsx     # Contexte React pour l'état
+│   ├── puter-client.ts       # Client Puter.js
+│   └── utils.ts              # Utilitaires
+└── AI/
+    └── chat.md               # Documentation Puter.js
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Cloner le dépôt
+2. Installer les dépendances :
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Développement
 
-## Learn More
+Lancer le serveur de développement :
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Ouvrir [http://localhost:3000](http://localhost:3000) dans votre navigateur.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Utilisation
 
-## Deploy on Vercel
+1. **Page d'accueil** : Découvrez le projet et ses fonctionnalités
+2. **Configuration** : Remplissez le formulaire avec vos critères :
+   - Type d'utilisateur (particulier/entreprise)
+   - Budget
+   - Usage prévu
+   - Préférences de marques/technologies
+   - Besoins spécifiques (optionnel)
+3. **Recommandations** : Obtenez des suggestions personnalisées générées par l'IA
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Critères de recommandation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+L'agent prend en compte trois critères principaux :
+
+1. **Budget** : Adaptation aux moyens financiers
+2. **Usage** : Gaming, bureautique, création de contenu, développement...
+3. **Préférences** : Marques, systèmes d'exploitation, technologies préférées
+
+## À propos de Puter.js
+
+Puter.js est un SDK JavaScript qui permet d'accéder à plus de 500 modèles d'IA, incluant OpenAI, Anthropic, Google, et plus encore. Ce projet utilise Claude 3.5 Sonnet pour générer des recommandations intelligentes et contextuelles.
+
+## Licence
+
+Projet académique - M2 Transition des SI
