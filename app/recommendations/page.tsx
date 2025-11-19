@@ -11,7 +11,7 @@ import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Progress } from '@/components/ui/progress';
 import ReactMarkdown from 'react-markdown';
-import { Sparkles, RefreshCw, Search, AlertCircle, CheckCircle, User, Building2, DollarSign, Target, Loader2, Info } from 'lucide-react';
+import { Sparkles, RefreshCw, Search, AlertCircle, CheckCircle, User, Building2, DollarSign, Target, Loader2, TriangleAlert, AlertCircleIcon } from 'lucide-react';
 
 export default function RecommendationsPage() {
   const router = useRouter();
@@ -121,7 +121,7 @@ export default function RecommendationsPage() {
                   <DollarSign className="h-3 w-3" />
                   {config.budgetRange}
                 </Badge>
-                <Badge variant="outline" className="flex items-center gap-1">
+                <Badge variant="outline" className="flex items-center gap-1 capitalize">
                   <Target className="h-3 w-3" />
                   {config.usageType}
                 </Badge>
@@ -226,11 +226,11 @@ export default function RecommendationsPage() {
 
               {/* Actions */}
               <div className="flex gap-4 justify-center flex-wrap">
-                <Button onClick={handleRegenerate} variant="outline" className="flex items-center gap-2">
+                <Button onClick={handleRegenerate} variant="outline" className="flex items-center gap-2 w-full">
                   <RefreshCw className="h-4 w-4" />
                   Régénérer les recommandations
                 </Button>
-                <Button onClick={handleNewSearch} className="flex items-center gap-2">
+                <Button onClick={handleNewSearch} className="flex items-center gap-2 w-full">
                   <Search className="h-4 w-4" />
                   Nouvelle recherche
                 </Button>
@@ -239,10 +239,13 @@ export default function RecommendationsPage() {
               {/* Info */}
               <Card className="bg-linear-to-br from-accent/10 to-primary/10 border-2">
                 <CardContent className="py-4">
-                  <p className="text-sm text-muted-foreground text-center flex items-center justify-center gap-2">
-                    <Info className="h-4 w-4" />
-                    Ces recommandations sont générées par une IA et doivent être considérées comme des suggestions.
-                    Nous vous recommandons de vérifier les prix et la disponibilité avant tout achat.
+                  <p className="text-xs text-muted-foreground text-center flex items-center justify-evenly gap-2">
+                    <TriangleAlert className="h-8 w-8" />
+                    <span className='w-2/3'>
+                      Ces recommandations sont générées par une IA et doivent être considérées comme des suggestions.
+                      Nous vous recommandons de vérifier les prix et la disponibilité avant tout achat.
+                    </span>
+                    <TriangleAlert className="h-8 w-8" />
                   </p>
                 </CardContent>
               </Card>

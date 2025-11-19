@@ -11,7 +11,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Header } from '@/components/header';
 import { useAgent } from '@/lib/agent-context';
-import { User, Building2, DollarSign, Target, Laptop, Gamepad, Palette, Code, Music, Briefcase, FileText, ArrowLeft, Sparkles } from 'lucide-react';
+import { User, Building2, DollarSign, Target, Laptop, Gamepad, Palette, Code, Music, Briefcase, FileText, ArrowLeft, Sparkles, Cog } from 'lucide-react';
 
 const BRANDS = ['Apple', 'Samsung', 'Dell', 'HP', 'Lenovo', 'Asus', 'MSI', 'Acer', 'Peu importe'];
 const OS = ['macOS', 'Windows', 'Linux', 'Android', 'iOS', 'Peu importe'];
@@ -68,7 +68,7 @@ export default function ConfigurePage() {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
-              <Target className="h-4 w-4" />
+              <Cog className="h-4 w-4" />
               Configurez vos besoins
             </div>
             <h1 className="text-4xl font-bold mb-2">Configuration</h1>
@@ -146,8 +146,8 @@ export default function ConfigurePage() {
                   </Select>
                   <p className="text-sm text-muted-foreground">
                     {formData.userType === 'enterprise'
-                      ? 'Budget par employé ou budget total'
-                      : 'Votre budget pour l\'équipement'}
+                      ? 'Budget par employé'
+                      : 'Votre budget pour votre équipement personnel'}
                   </p>
                 </div>
 

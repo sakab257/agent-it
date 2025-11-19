@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Header } from '@/components/header';
 import { ArrowRight, CheckCircle2, Search, Sparkles, Building2, User, DollarSign, Target, Award } from 'lucide-react';
+import { HowItWorks } from '@/components/how-it-works';
 
 export default function Home() {
   return (
@@ -13,8 +14,8 @@ export default function Home() {
           {/* Hero Section */}
           <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
-              <Sparkles className="h-4 w-4" />
-              Projet fait par Yacine-Samy & Salim
+              {/* <Sparkles className="h-4 w-4" /> */}
+              Projet réalisé par Yacine-Samy & Salim
             </div>
             <h1 className="text-5xl font-bold tracking-tight bg-linear-to-r from-foreground to-foreground/70 bg-clip-text">
               Bienvenue sur Opti'Match
@@ -35,8 +36,8 @@ export default function Home() {
           {/* Comment ça marche */}
           <div className="space-y-6 pt-8">
             <h2 className="text-3xl font-bold text-center">Comment ça fonctionne ?</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="border-2">
+            <div className="flex w-full justify-center">
+              {/* <Card className="border-2">
                 <CardHeader>
                   <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-2xl font-bold mb-2 shadow-lg">
                     1
@@ -79,7 +80,8 @@ export default function Home() {
                     Obtenez une liste personnalisée d'équipements avec justifications détaillées
                   </CardDescription>
                 </CardHeader>
-              </Card>
+              </Card> */}
+              <HowItWorks />
             </div>
           </div>
 
