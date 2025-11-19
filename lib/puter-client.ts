@@ -55,12 +55,14 @@ Preferred operating systems: ${os.length > 0 ? os.join(', ') : 'No preference'}
 # RECOMMENDATION SCOPE
 
 ${userType === 'enterprise'
-  ? `For this enterprise, provide a complete and detailed list including:
+  ? `For this enterprise, provide a complete and detailed list including (the budget is for each employee):
 - Computers (laptops and/or desktops depending on needs), search this one first
 - Professional phones if needed or relevant and if an OS (Android or iOS) is specified, if not, don't specify a phone.
-- Essential accessories and peripherals (monitors, keyboards, mice, headsets, etc.) for the team if needed.
+- Essential accessories and peripherals (monitors, keyboards, mice, headsets, etc.) for the employee if needed.
 
 Consider scalability, fleet maintainability, professional warranties, and after-sales support.
+
+Don't forget, this is for each employee !
 
 Prioritize the specific needs mentioned if any.
 
